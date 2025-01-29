@@ -1,10 +1,14 @@
+import PostsList from "@/components/posts-list";
+import { Suspense } from "react";
 
-function page() {
+export default async function Page() {
   return (
-    <main className="text-center pt-32 px-5">
-        <h1 className="text-4xl md:text-5xl font-bold mb-5">All posts</h1>
-    </main>
-  )
-}
+    <main className="text-center pt-16 px-5">
+      <h1 className="text-4xl md:text-5xl font-bold mb-5">All posts</h1>
 
-export default page
+      <Suspense fallback="Loading...">
+        <PostsList />
+      </Suspense>
+    </main>
+  );
+}

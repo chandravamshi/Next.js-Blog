@@ -1,14 +1,14 @@
-import Image from "next/image";
+import PostsList from "@/components/posts-list";
+import { Suspense } from "react";
 
-export default function Home() {
+export default async function Page() {
   return (
-    <main className="text-center pt-32 px-5">
-      <h1 className="text-4xl md:text-5xl font-bold mb-5">Welome to blog</h1>
-      <p className="leading-8 max-w-[750px] mx-auto">
-        This is a simple blog built with Next.js and Tailwind CSS.  You can 
-        create, read, update, and delete posts.
-      </p>
-      
+    <main className="text-center pt-16 px-5">
+      <h1 className="text-4xl md:text-5xl font-bold mb-5">All posts</h1>
+
+      <Suspense fallback="Loading...">
+        <PostsList />
+      </Suspense>
     </main>
   );
 }
